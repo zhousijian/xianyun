@@ -1,6 +1,6 @@
 <template>
-  <div class="index">
-    首页
+  <div class="airindex">
+      机票首页
   </div>
 </template>
 
@@ -10,6 +10,6 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style>
 
 </style>

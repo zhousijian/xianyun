@@ -1,6 +1,6 @@
 <template>
-  <div class="index">
-    首页
+  <div class="hotelindex">
+      酒店首页
   </div>
 </template>
 
@@ -10,6 +10,6 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style>
 
 </style>

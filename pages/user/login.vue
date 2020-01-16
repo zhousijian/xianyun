@@ -1,6 +1,6 @@
 <template>
-  <div class="index">
-    首页
+  <div class="login">
+      用户登录页面
   </div>
 </template>
 
@@ -10,6 +10,6 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style>
 
 </style>
