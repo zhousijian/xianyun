@@ -1,6 +1,6 @@
-# xianyun
+# xianYun
 
-> My slick Nuxt.js project
+> My cat&#39;s pajamas Nuxt.js project
 
 ## Build Setup
 

@@ -1,184 +1,72 @@
 <template>
-  <div class="index">
-    <!-- 轮播图 -->
-    <el-carousel height="700px">
-      <el-carousel-item v-for="(v,i) in banners" :key="i">
-        <div
-          class="banner"
-          :style="`background:url(${$axios.defaults.baseURL}${v.url}) center center no-repeat;`"
-        ></div>
-      </el-carousel-item>
-    </el-carousel>
-    <!-- 搜索框 -->
-    <div class="banner-content">
-      <div class="search-bar">
-        <!-- tab栏 -->
-        <el-row type="flex" class="search-tab">
-          <span v-for="(v,i) in searchNav" :key="i" :class="{active:index==i}" @click="click(i)">
-            <i>{{v.title}}</i>
-          </span>
-        </el-row>
-
-        <!-- 输入框 -->
-        <el-row type="flex" align="middle" class="search-input">
-          <input :placeholder="searchNav[index].placeholder" />
-          <i class="el-icon-search"></i>
-        </el-row>
+  <div class="container">
+    <div>
+      <logo />
+      <h1 class="title">
+        xianYun
+      </h1>
+      <h2 class="subtitle">
+        My cat&#39;s pajamas Nuxt.js project
+      </h2>
+      <div class="links">
+        <a
+          href="https://nuxtjs.org/"
+          target="_blank"
+          class="button--green"
+        >
+          Documentation
+        </a>
+        <a
+          href="https://github.com/nuxt/nuxt.js"
+          target="_blank"
+          class="button--grey"
+        >
+          GitHub
+        </a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      banners: [],
-      searchNav : [
-        {
-          title : '攻略',
-          placeholder : '搜索城市'
-        },
-        {
-          title : '酒店',
-          placeholder : '请输入城市搜索酒店'
-        },
-        {
-          title : '机票',
-          placeholder : ''
-        }
-      ],
-      index : 0
-    };
-  },
-  methods: {
-    click(i){
-      this.index = i
-    }
-  },
-  mounted() {
-    this.$axios({
-      url: "/scenics/banners"
-    }).then(res => {
-      console.log(res);
+import Logo from '~/components/Logo.vue'
 
-      this.banners = res.data.data;
-    });
+export default {
+  components: {
+    Logo
   }
-};
+}
 </script>
 
-<style lang="less" scoped>
-.banner {
-  height: 700px;
-}
-/deep/.el-carousel__arrow--left,
-/deep/.el-carousel__arrow--right {
-  width: 50px;
-  height: 50px;
-  font-size: 30px;
-}
-.index {
-  min-width: 1000px;
+<style>
+.container {
   margin: 0 auto;
-  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
-  /deep/ .el-carousel__container {
-    height: 700px;
-  }
+.title {
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  display: block;
+  font-weight: 300;
+  font-size: 100px;
+  color: #35495e;
+  letter-spacing: 1px;
+}
 
-  .banner-image {
-    width: 100%;
-    height: 100%;
-  }
+.subtitle {
+  font-weight: 300;
+  font-size: 42px;
+  color: #526488;
+  word-spacing: 5px;
+  padding-bottom: 15px;
+}
 
-  .banner-content {
-    z-index: 9;
-    width: 1000px;
-    position: absolute;
-    left: 50%;
-    top: 45%;
-    margin-left: -500px;
-    border-top: 1px transparent solid;
-
-    .search-bar {
-      width: 552px;
-      margin: 0 auto;
-    }
-
-    .search-tab {
-      .active {
-        i {
-          color: #333;
-        }
-        &::after {
-          background: #eee;
-        }
-      }
-
-      span {
-        width: 82px;
-        height: 36px;
-        display: block;
-        position: relative;
-        margin-right: 8px;
-        cursor: pointer;
-
-        i {
-          position: absolute;
-          z-index: 2;
-          display: block;
-          width: 100%;
-          height: 100%;
-          line-height: 30px;
-          text-align: center;
-          color: #fff;
-        }
-
-        &:after {
-          position: absolute;
-          left: 0;
-          top: 0;
-          display: block;
-          content: "";
-          width: 100%;
-          height: 100%;
-          border: 1px rgba(255, 255, 255, 0.2) solid;
-          border-bottom: none;
-          transform: scale(1.1, 1.3) perspective(0.7em) rotateX(2.2deg);
-          transform-origin: bottom left;
-          background: rgba(0, 0, 0, 0.5);
-          border-radius: 1px 2px 0 0;
-          box-sizing: border-box;
-        }
-      }
-    }
-
-    .search-input {
-      width: 550px;
-      height: 46px;
-      background: #fff;
-      border-radius: 0 4px 4px 4px;
-      border: 1px rgba(255, 255, 255, 0.2) solid;
-      border-top: none;
-      box-sizing: unset;
-
-      input {
-        flex: 1;
-        height: 20px;
-        padding: 13px 15px;
-        outline: none;
-        border: 0;
-        font-size: 16px;
-      }
-
-      .el-icon-search {
-        cursor: pointer;
-        font-size: 22px;
-        padding: 0 10px;
-        font-weight: bold;
-      }
-    }
-  }
+.links {
+  padding-top: 15px;
 }
 </style>

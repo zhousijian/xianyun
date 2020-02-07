@@ -1,7 +1,7 @@
 {
-  "name": "xianyun",
+  "name": "xianYun",
   "version": "1.0.0",
-  "description": "My slick Nuxt.js project",
+  "description": "My cat&#39;s pajamas Nuxt.js project",
   "author": "zhousijian",
   "private": true,
   "scripts": {
@@ -11,11 +11,9 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.6",
+    "nuxt": "^2.0.0",
     "element-ui": "^2.4.11",
-    "less": "^3.10.3",
-    "less-loader": "^5.0.0",
-    "nuxt": "^2.0.0"
+    "@nuxtjs/axios": "^5.3.6"
   },
   "devDependencies": {}
 }
